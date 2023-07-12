@@ -25,9 +25,11 @@ function User(e, p, n, l, a, g1, g2, g3) {
     this.name = n;
     this.last = l;
     this.age = a;
-    this.grade1 = g1;
-    this.grade2 = g2;
-    this.grade3 = g3;
+    this.grade1 = parseFloat(g1);
+    this.grade2 = parseFloat(g2);
+    this.grade3 = parseFloat(g3);
+    this.getGPA = ((this.grade1  + this.grade2 + this.grade3) / 3);
+
 }
 
 function clearForm() {
@@ -85,6 +87,15 @@ function validateUser() {
         resp+= " GRADE 3"
     }
 
+    let val1 = parseFloat(g1.val());
+    let val2 = parseFloat(g2.val());
+    let val3 = parseFloat(g3.val());
+
+    if ( val1 > 4.0 || val2 > 4.0 || val3 > 4.0) {
+        validation =  false;
+        resp+= 'and out range value in a grade';
+    }
+
     if(!validation){
         alert(resp);
     }
@@ -103,10 +114,9 @@ function register() {
             g1.val(),
             g2.val(),
             g3.val());
-
-        console.log(user.email);
+        console.log(user);
         saveUser(user);
-        // clearForm();
+        clearForm();
     }
 }
 

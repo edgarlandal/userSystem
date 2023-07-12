@@ -3,15 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./style/style.css">
     <title>User</title>
 </head>
 <body>
 
-    <header>
+    <header class="container">
         <h1>Awesome User Registration System</h1>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="./index.html">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./register.html">Register</a>
+            </li>
+        </ul>
     </header>
 
-    <h2>User</h2>
+    <main class="container">
+        <h2>User</h2>
+        <table id="userTable" class="table">
+            <thead>
+                <tr>
+                    <th>Email: </th>
+                    <th>Name: </th>
+                    <th>Age: </th>
+                    <th>FSDI 101: </th>
+                    <th>FSDI 102: </th>
+                    <th>FSDI 103: </th>
+                    <th>GPA</th>
+                </tr>
+            </thead>
+            <tbody>
 
+            </tbody>    
+        </table>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="./script/storegeManager.js"></script>
+    <script src="./script/display.js"></script>
 </body>
 </html>
