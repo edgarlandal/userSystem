@@ -47,57 +47,91 @@ function validateUser() {
     var validation = true;
     var resp = "ERROR IN A FORM:";
 
+    email.css("background-color", "white");
+    pass.css("background-color", "white");
+    fname.css("background-color", "white");
+    lname.css("background-color", "white");
+    age.css("background-color", "white");
+    g1.css("background-color", "white");
+    g2.css("background-color", "white");
+    g3.css("background-color", "white");
+
     if (!email.val()) {
         validation = false;
         resp+= " EMAIL"
+        email.css("background-color", "red");
     }
 
     if (!pass.val()) {
         validation = false;
         resp+= " PASSWORD"
+        pass.css("background-color", "red");
     }
 
     if (!fname.val()) {
         validation = false;
         resp+= " FIRST NAME"
+        fname.css("background-color", "red");
     }
 
     if (!lname.val()) {
         validation = false;
         resp+= " LAST NAME"
+        lname.css("background-color", "red");
     }
 
     if (!age.val()) {
         validation = false;
         resp+= " AGE"
+        age.css("background-color", "red");
     }
 
     if (!g1.val()) {
         validation = false;
         resp+= " GRADE 1"
+        g1.css("background-color", "red");
     }
 
     if (!g2.val()) {
         validation = false;
         resp+= " GRADE 2"
+        g2.css("background-color", "red");
     }
 
     if (!g3.val()) {
         validation = false;
         resp+= " GRADE 3"
+        g3.css("background-color", "red");
     }
 
     let val1 = parseFloat(g1.val());
     let val2 = parseFloat(g2.val());
     let val3 = parseFloat(g3.val());
 
-    if ( val1 > 4.0 || val2 > 4.0 || val3 > 4.0) {
-        validation =  false;
-        resp+= 'and out range value in a grade';
+    if(val1 > 4.0 || val2 > 4.0 || val3 > 4.0) { 
+        resp+= ' and out range value in a grade in '
+        validation = false;
+    }
+
+    if(val1 > 4.0) {
+        resp+= 'g1 '
+        g1.css("background-color", "red");
+    } 
+
+    if (val2 > 4.0) {
+        g2.css("background-color", "red");
+        resp+= 'g2 '
+    }
+
+    if(val3 > 4.0){
+        g3.css("background-color", "red");
+        resp+= 'g3'
     }
 
     if(!validation){
         alert(resp);
+    } else {
+        alert("Register is correct");
     }
 
     return validation;
@@ -121,7 +155,12 @@ function register() {
 }
 
 function init() {
-
+    $('main').on("hover",function (e) { 
+        $('header').css(
+            'background-color','red'
+        );
+        
+    });
 }
 
 window.onload = init();

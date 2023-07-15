@@ -2,3 +2,7 @@
     background-color: red;
 }
 
+.container{
+    justify-content: center;
+    align-items: center;
+}

@@ -20,8 +20,8 @@ function displayUser(userArray) {
         i++;
     });
 
-    TBODY.append(tr);
 
+    TBODY.append(tr);
 
     for (let i = 0; i < userArray.length; i++) {
         if (userArray[i].getGPA <= 2.0) {
